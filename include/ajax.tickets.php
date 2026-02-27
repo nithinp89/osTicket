@@ -1924,6 +1924,50 @@ class TicketsAjaxAPI extends AjaxController {
          include STAFFINC_DIR . 'templates/task.tmpl.php';
     }
 
+    // Splits a ticket by creating a new child ticket linked to it as a parent.
+    // Implements Freshdesk-style parent-child ticketing where complex issues can
+    // be broken down into sub-tickets assigned to different teams or agents.
+    function splitTicket($tid) {
+        global $thisstaff;
+
+        if (!($ticket = Ticket::lookup($tid)))
+            Http::response(404, __('Unknown ticket'));
+
+        if (!$ticket->checkStaffPerm($thisstaff, Ticket::PERM_SPLIT))
+            Http::response(403, __('Permission denied'));
+
+        $info = $errors = array();
+
+        $info['action'] = sprintf('#tickets/%d/split', $ticket->getId());
+        $info['title'] = sprintf(
+            __('Ticket #%1$s: %2$s'),
+            $ticket->getNumber(),
+            __('Create Child Ticket'));
+
+        if ($_POST) {
+            Draft::deleteForNamespace(
+                sprintf('ticket.%d.split', $ticket->getId()),
+                $thisstaff->getId());
+
+            $vars = $_POST;
+            if ($child = Ticket::createChildTicket($ticket, $vars, $errors)) {
+                $_SESSION['::sysmsgs']['msg'] = sprintf(
+                    __('Child ticket #%s created successfully'),
+                    $child->getNumber());
+                Http::response(201, $child->getId());
+            }
+
+            // Surface specific field errors; fall back to a general message
+            $info['error'] = $errors['err']
+                ?: ($errors['subject'] ? sprintf(__('Subject: %s'), $errors['subject'])
+                    : ($errors['topicId'] ? sprintf(__('Help Topic: %s'), $errors['topicId'])
+                        : __('Unable to create child ticket — please check the required fields and try again')));
+            $info['errors'] = $errors;
+        }
+
+        include STAFFINC_DIR . 'templates/split-ticket.tmpl.php';
+    }
+
     function task($tid, $id) {
         global $thisstaff;
 
