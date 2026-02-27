@@ -51,6 +51,7 @@ if (osTicket::is_ie())
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/select2.min.css">
     <!-- Modern Theme Enhancements -->
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/modern-theme.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/modern-tables.css"/>
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/oscar-favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/oscar-favicon-16x16.png" sizes="16x16" />

@@ -1,0 +1,463 @@
+/* 
+ * Additional Modern Theme Enhancements for Tables and Lists
+ * Supplements modern-theme.css with specific table styling
+ */
+
+/* ============================================
+   TABLE LIST MODERNIZATION
+   ============================================ */
+table.list {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+    background: white !important;
+}
+
+table.list caption {
+    background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%) !important;
+    padding: 12px 16px !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    text-align: left !important;
+    font-size: 16px !important;
+}
+
+table.list thead th {
+    background: #f8fafc !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding: 12px 12px !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    text-transform: uppercase;
+    font-size: 12px !important;
+    letter-spacing: 0.05em;
+}
+
+table.list thead th a {
+    color: #475569 !important;
+    font-weight: 600 !important;
+    transition: color 0.2s ease;
+}
+
+table.list thead th a:hover {
+    color: #2563eb !important;
+}
+
+table.list thead th a.asc,
+table.list thead th a.desc {
+    background-color: #e0e7ff !important;
+    color: #2563eb !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+}
+
+table.list tbody td {
+    background: white !important;
+    padding: 12px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    color: #1e293b !important;
+}
+
+table.list tbody tr:nth-child(2n+1) td {
+    background-color: #f9fafb !important;
+}
+
+table.list tbody tr:hover td {
+    background: #f0f9ff !important;
+    cursor: pointer;
+}
+
+table.list tbody tr:nth-child(2n+1):hover td {
+    background: #e0f2fe !important;
+}
+
+/* ============================================
+   DASHBOARD STATS TABLE
+   ============================================ */
+table.dashboard-stats {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+table.dashboard-stats tbody:first-child th {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 12px 16px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+}
+
+table.dashboard-stats tbody:nth-child(2) tr:nth-child(odd) {
+    background: white !important;
+}
+
+table.dashboard-stats tbody:nth-child(2) th {
+    background: #f9fafb !important;
+    border-left: 1px solid #e2e8f0 !important;
+    padding: 10px 12px !important;
+    font-weight: 500 !important;
+}
+
+table.dashboard-stats tbody:nth-child(2) td {
+    background: white !important;
+    border-right: 1px solid #e2e8f0 !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 10px 12px !important;
+}
+
+table.dashboard-stats tbody:nth-child(2) tr:hover {
+    background: #f0f9ff !important;
+}
+
+table.dashboard-stats tbody:nth-child(2) tr:hover th {
+    background: #e0f2fe !important;
+}
+
+/* ============================================
+   FORM ELEMENTS ADDITIONAL STYLING
+   ============================================ */
+fieldset {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    background: white !important;
+}
+
+legend {
+    padding: 0 10px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    font-size: 16px !important;
+}
+
+/* ============================================
+   CHECKBOXES AND RADIO BUTTONS
+   ============================================ */
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: #2563eb;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* ============================================
+   SELECT DROPDOWNS
+   ============================================ */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px !important;
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+.pagination,
+.pager {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pagination a,
+.pagination span,
+.pager a,
+.pager span {
+    padding: 8px 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    background: white !important;
+    color: #475569 !important;
+    transition: all 0.2s ease;
+    text-decoration: none !important;
+}
+
+.pagination a:hover,
+.pager a:hover {
+    background: #f8fafc !important;
+    border-color: #2563eb !important;
+    color: #2563eb !important;
+}
+
+.pagination .current,
+.pagination .active {
+    background: #2563eb !important;
+    color: white !important;
+    border-color: #2563eb !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.status {
+    padding: 4px 12px !important;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    display: inline-block;
+}
+
+.status.open {
+    background: #dbeafe !important;
+    color: #1e40af !important;
+}
+
+.status.closed {
+    background: #f3f4f6 !important;
+    color: #6b7280 !important;
+}
+
+.status.resolved {
+    background: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.status.pending {
+    background: #fef3c7 !important;
+    color: #92400e !important;
+}
+
+/* ============================================
+   TABS
+   ============================================ */
+.tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.tabs a {
+    padding: 12px 20px !important;
+    color: #64748b !important;
+    text-decoration: none !important;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s ease;
+    font-weight: 500 !important;
+}
+
+.tabs a:hover {
+    color: #2563eb !important;
+    background: #f8fafc !important;
+}
+
+.tabs a.active {
+    color: #2563eb !important;
+    border-bottom-color: #2563eb !important;
+    font-weight: 600 !important;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+.action-button,
+.btn-action {
+    background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%) !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #475569 !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-button:hover,
+.btn-action:hover {
+    border-color: #2563eb !important;
+    color: #2563eb !important;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2) !important;
+}
+
+.action-button.danger,
+.btn-action.danger {
+    border-color: #fca5a5 !important;
+    color: #dc2626 !important;
+}
+
+.action-button.danger:hover,
+.btn-action.danger:hover {
+    background: #fef2f2 !important;
+    border-color: #dc2626 !important;
+}
+
+/* ============================================
+   MODAL / DIALOG IMPROVEMENTS
+   ============================================ */
+.dialog,
+.modal {
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    background: white !important;
+}
+
+.dialog-header,
+.modal-header {
+    background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%) !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding: 16px 20px !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.dialog-header h2,
+.dialog-header h3,
+.modal-header h2,
+.modal-header h3 {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+.dialog-body,
+.modal-body {
+    padding: 20px !important;
+}
+
+.dialog-footer,
+.modal-footer {
+    background: #f9fafb !important;
+    border-top: 1px solid #e2e8f0 !important;
+    padding: 16px 20px !important;
+    border-radius: 0 0 12px 12px !important;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* ============================================
+   SEARCH BARS
+   ============================================ */
+.search-bar,
+input[type="search"] {
+    padding: 10px 16px 10px 40px !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 12px center !important;
+    transition: all 0.2s ease !important;
+}
+
+.search-bar:focus,
+input[type="search"]:focus {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+    outline: none !important;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%) !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding: 16px 20px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+}
+
+.card-body {
+    padding: 20px !important;
+}
+
+.card-footer {
+    background: #f9fafb !important;
+    border-top: 1px solid #e2e8f0 !important;
+    padding: 12px 20px !important;
+}
+
+/* ============================================
+   PROGRESS BARS
+   ============================================ */
+.progress {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #2563eb 0%, #3b82f6 100%);
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+/* ============================================
+   DROPDOWNS
+   ============================================ */
+.dropdown-menu {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    padding: 8px 0 !important;
+}
+
+.dropdown-menu li {
+    list-style: none !important;
+}
+
+.dropdown-menu a {
+    padding: 8px 16px !important;
+    color: #475569 !important;
+    display: block !important;
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #f8fafc !important;
+    color: #2563eb !important;
+    text-decoration: none !important;
+}
+
+/* ============================================
+   INFO BOXES
+   ============================================ */
+.info-box {
+    padding: 16px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #2563eb !important;
+    background: #eff6ff !important;
+    margin-bottom: 16px;
+}
+
+.info-box.warning {
+    border-left-color: #f59e0b !important;
+    background: #fffbeb !important;
+}
+
+.info-box.error {
+    border-left-color: #ef4444 !important;
+    background: #fef2f2 !important;
+}
+
+.info-box.success {
+    border-left-color: #10b981 !important;
+    background: #f0fdf4 !important;
+}
