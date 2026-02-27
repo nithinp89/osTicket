@@ -253,9 +253,9 @@ textarea:focus,
 select:focus {
     border-color: var(--primary-color) !important;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
-    /* Keep outline for accessibility, enhanced with box-shadow */
+    /* Keep outline for accessibility with positive offset */
     outline: 2px solid var(--primary-color) !important;
-    outline-offset: -1px !important;
+    outline-offset: 2px !important;
 }
 
 /* ============================================

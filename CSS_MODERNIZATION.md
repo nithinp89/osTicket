@@ -127,10 +127,11 @@ The following header files were updated to include the new CSS files:
 - **Active States**: Pressed appearance with reduced shadow
 
 ### Accessibility
-- **Focus Visible**: Clear focus indicators for keyboard navigation
-- **Color Contrast**: Sufficient contrast ratios for readability
-- **Semantic Colors**: Not relying solely on color to convey information
-- **Touch Targets**: Adequate size for clickable elements
+- **Focus Visible**: Clear focus indicators with 2px outline and 2px positive offset for keyboard navigation
+- **Color Contrast**: Sufficient contrast ratios for readability (meets WCAG AA standards)
+- **Semantic Indicators**: Status badges use both color AND text labels; alerts include icons from existing sprite
+- **Touch Targets**: Adequate size (minimum 44x44px) for clickable elements
+- **Screen Reader Support**: Maintains existing semantic HTML structure
 
 ## Browser Compatibility
 

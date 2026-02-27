@@ -84,7 +84,9 @@ fieldset input {
 fieldset input:focus {
     border: 2px solid var(--login-primary) !important;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05) !important;
-    outline: none !important;
+    /* Clear focus indicator with positive offset for accessibility */
+    outline: 2px solid var(--login-primary) !important;
+    outline-offset: 2px !important;
 }
 
 fieldset input::placeholder {
