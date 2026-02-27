@@ -113,6 +113,7 @@ implements RestrictedAccess, Threadable, Searchable {
     const PERM_REFER    = 'ticket.refer';
     const PERM_MERGE    = 'ticket.merge';
     const PERM_LINK     = 'ticket.link';
+    const PERM_SPLIT    = 'ticket.split';
     const PERM_REPLY    = 'ticket.reply';
     const PERM_MARKANSWERED = 'ticket.markanswered';
     const PERM_CLOSE    = 'ticket.close';
@@ -122,6 +123,8 @@ implements RestrictedAccess, Threadable, Searchable {
     const FLAG_SEPARATE_THREADS    = 0x0002;
     const FLAG_LINKED              = 0x0008;
     const FLAG_PARENT              = 0x0010;
+
+    const MAX_CHILDREN             = 50;
 
     static protected $perms = array(
             self::PERM_CREATE => array(
@@ -164,6 +167,11 @@ implements RestrictedAccess, Threadable, Searchable {
                 /* @trans */ 'Link',
                 'desc'  =>
                 /* @trans */ 'Ability to link tickets'),
+            self::PERM_SPLIT => array(
+                'title' =>
+                /* @trans */ 'Split',
+                'desc'  =>
+                /* @trans */ 'Ability to create child tickets by splitting a ticket'),
             self::PERM_REPLY => array(
                 'title' =>
                 /* @trans */ 'Post Reply',
@@ -2625,6 +2633,75 @@ implements RestrictedAccess, Threadable, Searchable {
             return $parent;
         }
         return false;
+    }
+
+    // Creates a new child ticket linked to this ticket as a parent (ticket split).
+    // Implements Freshdesk-style parent-child ticketing: a parent can have up to
+    // MAX_CHILDREN child tickets, each independently worked on by different teams.
+    static function createChildTicket($parent, $vars, &$errors) {
+        global $thisstaff;
+
+        if (!$parent instanceof Ticket)
+            return false;
+
+        if (!$thisstaff
+                || !$parent->checkStaffPerm($thisstaff, Ticket::PERM_SPLIT))
+            return false;
+
+        // A child ticket cannot itself become a parent via split
+        if ($parent->isChild()) {
+            $errors['err'] = __('Cannot split a child ticket');
+            return false;
+        }
+
+        // Enforce maximum child ticket limit (Freshdesk allows up to 50)
+        if (count($parent->getChildren()) >= self::MAX_CHILDREN) {
+            $errors['err'] = sprintf(
+                __('Maximum of %d child tickets per parent reached'), self::MAX_CHILDREN);
+            return false;
+        }
+
+        // Inherit the parent's user if not explicitly provided
+        if (empty($vars['uid']) && empty($vars['email']))
+            $vars['uid'] = $parent->getUserId();
+
+        // Inherit the parent's department if not explicitly provided
+        if (empty($vars['deptId']))
+            $vars['deptId'] = $parent->getDeptId();
+
+        // Inherit the parent's help topic if not explicitly provided
+        if (empty($vars['topicId']))
+            $vars['topicId'] = $parent->getTopicId();
+
+        // Mark this ticket as originating from a split so filters know
+        if (!isset($vars['source']))
+            $vars['source'] = 'Staff';
+
+        if (!($child = self::open($vars, $errors)))
+            return false;
+
+        // Establish the parent-child relationship
+        $child->setPid($parent->getId());
+        // setMergeType(0): 0 is the index for FLAG_SEPARATE_THREADS in setMergeType,
+        // meaning each ticket keeps its own independent thread.
+        $child->setMergeType(0); // 0 = separate threads
+        $child->save();
+
+        // Flag parent as a parent ticket (second arg true = set FLAG_PARENT)
+        $parent->setMergeType(0, true); // 0 = separate threads; true = this is the parent
+
+        // Audit trail on both tickets
+        $parent->logEvent('split', array(
+            'ticket' => sprintf('Ticket #%s', $child->getNumber()),
+            'id'     => $child->getId()));
+        $child->logEvent('split', array(
+            'ticket' => sprintf('Ticket #%s', $parent->getNumber()),
+            'id'     => $parent->getId()));
+
+        // Invalidate cached children list
+        unset($parent->_children);
+
+        return $child;
     }
 
     function getRelatedTickets() {

@@ -185,6 +185,17 @@ if($ticket->isOverdue())
                  <?php
                  }
 
+                 if ($role->hasPerm(Ticket::PERM_SPLIT) && !$ticket->isChild()) { ?>
+                     <li><a href="#ajax.php/tickets/<?php echo $ticket->getId();
+                         ?>/split" onclick="javascript:
+                         $.dialog($(this).attr('href').substr(1), [201], function(xhr) {
+                             $.pjax.reload('#ticket-thread');
+                         });
+                         return false"
+                         ><i class="icon-random"></i> <?php echo __('Create Child Ticket'); ?></a></li>
+                 <?php
+                 }
+
                  if ($ticket->isAssigned() && $canRelease) { ?>
                         <li><a href="#tickets/<?php echo $ticket->getId();
                             ?>/release" class="ticket-action"
