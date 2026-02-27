@@ -251,9 +251,11 @@ input[type="url"]:focus,
 input[type="search"]:focus,
 textarea:focus,
 select:focus {
-    outline: none !important;
     border-color: var(--primary-color) !important;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+    /* Keep outline for accessibility, enhanced with box-shadow */
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: -1px !important;
 }
 
 /* ============================================

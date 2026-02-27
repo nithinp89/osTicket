@@ -353,7 +353,9 @@ input[type="search"] {
 input[type="search"]:focus {
     border-color: #2563eb !important;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
-    outline: none !important;
+    /* Keep outline for accessibility, enhanced with box-shadow */
+    outline: 2px solid #2563eb !important;
+    outline-offset: -1px !important;
 }
 
 /* ============================================

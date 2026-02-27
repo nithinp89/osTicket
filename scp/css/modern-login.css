@@ -263,14 +263,22 @@ hr {
 /* ============================================
    FOCUS STATES FOR ACCESSIBILITY
    ============================================ */
-input[type="text"]:focus,
-input[type="password"]:focus {
-    outline: none !important;
+/* Provide clear focus indicators for all focusable elements */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--login-primary) !important;
+    outline-offset: 2px !important;
 }
 
+/* Enhanced focus for modern browsers */
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
     outline: 2px solid var(--login-primary) !important;
     outline-offset: 2px !important;
 }
