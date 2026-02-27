@@ -1,0 +1,286 @@
+/* 
+ * Modern Login Page Enhancements
+ * This file contains CSS-only improvements for the login page
+ */
+
+/* ============================================
+   MODERN LOGIN PAGE VARIABLES
+   ============================================ */
+:root {
+    --login-primary: #2563eb;
+    --login-primary-hover: #1d4ed8;
+    --login-bg-overlay: rgba(37, 99, 235, 0.05);
+}
+
+/* ============================================
+   LOGIN PAGE BACKGROUND
+   ============================================ */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+#background {
+    background-image: url(../logo.php?backdrop);
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.9);
+}
+
+#background-compat {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%) !important;
+}
+
+/* ============================================
+   LOGIN BOX MODERNIZATION
+   ============================================ */
+#loginBox {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.5) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(10px);
+    width: 420px !important;
+    padding: 2em !important;
+    margin-left: -210px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+}
+
+#loginBox:after {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   LOGO AREA
+   ============================================ */
+#logo a {
+    height: 120px !important;
+}
+
+#logo a img {
+    max-height: 80px !important;
+    max-width: 320px !important;
+}
+
+/* ============================================
+   FORM STYLING
+   ============================================ */
+form {
+    width: 100% !important;
+    max-width: 280px !important;
+}
+
+fieldset input {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    background: white !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+fieldset input:focus {
+    border: 2px solid var(--login-primary) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    /* Clear focus indicator with positive offset for accessibility */
+    outline: 2px solid var(--login-primary) !important;
+    outline-offset: 2px !important;
+}
+
+fieldset input::placeholder {
+    color: #94a3b8 !important;
+    font-style: normal !important;
+}
+
+/* ============================================
+   BUTTON STYLING
+   ============================================ */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button {
+    background: var(--login-primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    width: 100%;
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+    background: var(--login-primary-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
+.button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* ============================================
+   ERROR MESSAGE STYLING
+   ============================================ */
+h3 {
+    color: #ef4444 !important;
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 8px;
+    padding: 12px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+/* ============================================
+   BANNER STYLING
+   ============================================ */
+div.banner {
+    color: #64748b !important;
+    line-height: 1.6em !important;
+    font-size: 14px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+div.banner:not(:empty) {
+    margin-bottom: 1.5em !important;
+}
+
+/* ============================================
+   POWERED BY SECTION
+   ============================================ */
+#poweredBy {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+#poweredBy a {
+    color: #f1f5f9 !important;
+}
+
+#poweredBy a:hover {
+    color: white !important;
+}
+
+/* ============================================
+   COMPANY INFO
+   ============================================ */
+#company .content {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 12px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+    padding: 8px 20px !important;
+}
+
+/* ============================================
+   EXTERNAL AUTH
+   ============================================ */
+.external-auth-box {
+    background: white;
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.external-auth-box:hover {
+    border-color: var(--login-primary) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.external-auth-icon {
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0 !important;
+}
+
+.external-auth-name {
+    font-weight: 500;
+}
+
+/* ============================================
+   HR SEPARATOR
+   ============================================ */
+hr {
+    border-bottom: 1px solid #e2e8f0 !important;
+    margin: 24px 0 !important;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 480px) {
+    #loginBox {
+        width: 90% !important;
+        margin-left: -45% !important;
+        padding: 1.5em !important;
+    }
+    
+    form {
+        max-width: 100% !important;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateY(0);
+    }
+}
+
+#loginBox {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* ============================================
+   FOCUS STATES FOR ACCESSIBILITY
+   ============================================ */
+/* Provide clear focus indicators for all focusable elements */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--login-primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* Enhanced focus for modern browsers */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--login-primary) !important;
+    outline-offset: 2px !important;
+}

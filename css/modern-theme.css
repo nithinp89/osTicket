@@ -1,0 +1,542 @@
+/* 
+ * Modern Theme Enhancement for osTicket
+ * This file contains CSS-only improvements to modernize the UI
+ * without touching any JavaScript or PHP code
+ */
+
+/* ============================================
+   MODERN COLOR PALETTE
+   ============================================ */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+    --background: #f8fafc;
+    --card-background: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --radius-sm: 0.25rem;
+    --radius: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+}
+
+/* ============================================
+   GLOBAL IMPROVEMENTS
+   ============================================ */
+body, html {
+    background: var(--background) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 14px;
+    color: var(--text-primary) !important;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+a {
+    color: var(--primary-color) !important;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover) !important;
+    text-decoration: none;
+}
+
+/* ============================================
+   HEADER MODERNIZATION
+   ============================================ */
+#header {
+    background: var(--card-background) !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: var(--shadow) !important;
+    height: 80px !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+#logo {
+    padding: 10px 20px !important;
+}
+
+/* ============================================
+   NAVIGATION IMPROVEMENTS
+   ============================================ */
+#nav {
+    background: var(--card-background) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow-sm) !important;
+    padding: 0 20px !important;
+}
+
+#nav .active, #nav .inactive {
+    border-radius: var(--radius) var(--radius) 0 0 !important;
+    transition: all 0.2s ease;
+}
+
+#nav li.active {
+    background-color: var(--background) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 -2px 0 0 var(--primary-color) inset !important;
+}
+
+#nav li.inactive:hover {
+    background-color: var(--background) !important;
+    border-color: var(--border-color) !important;
+}
+
+#nav .active a {
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+}
+
+#nav .inactive a {
+    color: var(--text-secondary) !important;
+}
+
+#nav .inactive a:hover {
+    color: var(--primary-color) !important;
+}
+
+#nav li.inactive > ul {
+    background: var(--card-background) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+#nav .inactive li a:hover {
+    color: var(--primary-color) !important;
+    background-color: var(--background) !important;
+}
+
+/* ============================================
+   SUB NAVIGATION
+   ============================================ */
+#sub_nav {
+    background: var(--card-background) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+#sub_nav > li > a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+#container {
+    max-width: 1400px !important;
+    width: 95% !important;
+    margin: 20px auto !important;
+    padding: 0 20px;
+}
+
+/* ============================================
+   BREADCRUMBS
+   ============================================ */
+#breadcrumbs {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 12px 0 !important;
+    color: var(--text-secondary) !important;
+}
+
+#breadcrumbs a {
+    color: var(--text-secondary) !important;
+    transition: color 0.2s ease;
+}
+
+#breadcrumbs a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ============================================
+   BUTTONS MODERNIZATION
+   ============================================ */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.action-button,
+.button,
+button {
+    background: var(--card-background) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    padding: 8px 16px !important;
+    border-radius: var(--radius) !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: var(--shadow-sm) !important;
+    font-size: 14px !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.action-button:hover,
+.button:hover,
+button:hover {
+    background: var(--background) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: var(--shadow) !important;
+    transform: translateY(-1px);
+}
+
+button[type=submit],
+input[type="submit"],
+.primary.button {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+}
+
+button[type=submit]:hover,
+input[type=submit]:hover,
+.primary.button:hover {
+    background: var(--primary-hover) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* ============================================
+   FORM INPUTS MODERNIZATION
+   ============================================ */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius) !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+    background: var(--card-background) !important;
+    color: var(--text-primary) !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+    /* Keep outline for accessibility with positive offset */
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* ============================================
+   BANNERS / ALERTS MODERNIZATION
+   ============================================ */
+.banner,
+#msg_info,
+.info-banner {
+    border: 1px solid #bfdbfe !important;
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    padding: 12px 16px !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 16px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+#msg_notice,
+.success-banner,
+.notice-banner {
+    border: 1px solid #86efac !important;
+    background: #f0fdf4 !important;
+    color: #15803d !important;
+    padding: 12px 16px 12px 44px !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 16px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+#msg_warning,
+.warning-banner {
+    border: 1px solid #fed7aa !important;
+    background: #fffbeb !important;
+    color: #b45309 !important;
+    padding: 12px 16px 12px 44px !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 16px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+#msg_error,
+.error-banner {
+    border: 1px solid #fca5a5 !important;
+    background: #fef2f2 !important;
+    color: #b91c1c !important;
+    padding: 12px 16px 12px 44px !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 16px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* ============================================
+   TABLES MODERNIZATION
+   ============================================ */
+table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    width: 100%;
+    background: var(--card-background) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden;
+    box-shadow: var(--shadow) !important;
+}
+
+table thead {
+    background: var(--background) !important;
+    border-bottom: 2px solid var(--border-color) !important;
+}
+
+table thead th {
+    padding: 12px 16px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    text-align: left !important;
+    font-size: 13px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+table tbody tr {
+    border-bottom: 1px solid var(--border-color) !important;
+    transition: background-color 0.15s ease;
+}
+
+table tbody tr:hover {
+    background-color: var(--background) !important;
+}
+
+table tbody tr:last-child {
+    border-bottom: none !important;
+}
+
+table tbody td {
+    padding: 12px 16px !important;
+    color: var(--text-primary) !important;
+}
+
+/* ============================================
+   CARDS / PANELS
+   ============================================ */
+.panel,
+.box,
+.section,
+.widget {
+    background: var(--card-background) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow) !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+/* ============================================
+   LOADING / OVERLAY
+   ============================================ */
+#loading {
+    border: none !important;
+    background: var(--card-background) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-xl) !important;
+    padding: 20px !important;
+}
+
+#overlay {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* ============================================
+   CUSTOM QUEUES DROPDOWN
+   ============================================ */
+.customQ-dropdown {
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.customQ-dropdown li h4 {
+    background-color: var(--background) !important;
+    color: var(--text-secondary) !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   SECTION BREAKS
+   ============================================ */
+div.section-break {
+    border-top: 1px solid var(--border-color) !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 1em !important;
+    padding-top: 1em !important;
+}
+
+hr {
+    border: none !important;
+    border-top: 1px solid var(--border-color) !important;
+    margin: 20px 0 !important;
+}
+
+/* ============================================
+   TOOLTIPS
+   ============================================ */
+.tooltip {
+    background: rgba(0, 0, 0, 0.9) !important;
+    color: white !important;
+    border-radius: var(--radius) !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ============================================
+   BADGES / LABELS
+   ============================================ */
+.badge,
+.label {
+    padding: 4px 10px !important;
+    border-radius: 9999px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    display: inline-block;
+}
+
+/* ============================================
+   SCROLLBAR MODERNIZATION (WebKit browsers)
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: var(--radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius);
+    border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* ============================================
+   RESPONSIVE IMPROVEMENTS
+   ============================================ */
+@media (max-width: 1024px) {
+    #container {
+        width: 98% !important;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    #header {
+        height: auto !important;
+        padding: 10px !important;
+    }
+    
+    #nav {
+        padding: 10px !important;
+    }
+    
+    table {
+        font-size: 12px !important;
+    }
+    
+    table thead th,
+    table tbody td {
+        padding: 8px 12px !important;
+    }
+}
+
+/* ============================================
+   FOCUS VISIBLE FOR ACCESSIBILITY
+   ============================================ */
+*:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    #nav,
+    #sub_nav,
+    #header,
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+    
+    table {
+        box-shadow: none !important;
+    }
+}
